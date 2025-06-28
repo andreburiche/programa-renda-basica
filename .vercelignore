@@ -1,0 +1,27 @@
+# Backend Laravel (não necessário para o frontend)
+app/
+bootstrap/
+config/
+database/
+lang/
+resources/
+routes/
+storage/
+tests/
+vendor/
+artisan
+composer.json
+composer.lock
+
+# Arquivos de desenvolvimento
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db 

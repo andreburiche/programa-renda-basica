@@ -370,3 +370,109 @@ Para contribuir com o projeto:
 ---
 
 **Desenvolvido com ❤️ para melhorar a vida dos cidadãos brasileiros.**
+
+# Programa Renda Básica
+
+Sistema completo de consulta de benefícios do Programa Renda Básica com backend Laravel e frontend Next.js.
+
+## 🏗️ Arquitetura
+
+- **Backend**: Laravel 11 (API REST)
+- **Frontend**: Next.js 15 + TypeScript + Tailwind CSS
+- **Banco de Dados**: MySQL/PostgreSQL
+- **Deploy**: Vercel (Frontend) + Hospedagem tradicional (Backend)
+
+## 🚀 Deploy no Vercel
+
+### Configuração Automática
+O projeto já está configurado para deploy no Vercel com:
+- ✅ `vercel.json` configurado
+- ✅ `.vercelignore` otimizado
+- ✅ Speed Insights habilitado
+
+### Passos para Deploy:
+
+1. **Conecte o repositório no Vercel:**
+   - Acesse [vercel.com](https://vercel.com)
+   - Importe o repositório: `andreburiche/programa-renda-basica`
+   - O Vercel detectará automaticamente a configuração
+
+2. **Configure as variáveis de ambiente:**
+   ```
+   NEXT_PUBLIC_API_URL=https://seu-backend-laravel.com
+   ```
+
+3. **Deploy automático:**
+   - O Vercel fará deploy do frontend automaticamente
+   - Cada push para `main` gerará um novo deploy
+
+### Estrutura de Deploy:
+```
+programa-renda-basica/
+├── frontend/          # 🚀 Deploy no Vercel
+│   ├── src/
+│   ├── package.json
+│   └── ...
+├── app/              # 📦 Deploy em hospedagem tradicional
+├── config/
+└── ...
+```
+
+## 🛠️ Desenvolvimento Local
+
+### Backend (Laravel)
+```bash
+# Instalar dependências
+composer install
+
+# Configurar ambiente
+cp .env.example .env
+php artisan key:generate
+
+# Configurar banco de dados
+php artisan migrate
+php artisan db:seed
+
+# Rodar servidor
+php artisan serve
+```
+
+### Frontend (Next.js)
+```bash
+cd frontend
+
+# Instalar dependências
+npm install
+
+# Configurar ambiente
+cp env.local.example .env.local
+
+# Rodar servidor de desenvolvimento
+npm run dev
+```
+
+## 📊 Monitoramento
+
+- **Speed Insights**: Monitoramento automático de performance
+- **Analytics**: Métricas de uso e performance
+- **Logs**: Monitoramento de erros e performance
+
+## 🔧 Tecnologias
+
+### Backend
+- Laravel 11
+- MySQL/PostgreSQL
+- Eloquent ORM
+- API REST
+
+### Frontend
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Axios
+- Headless UI
+- Heroicons
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT.
