@@ -6,6 +6,12 @@
 !.vercelignore
 !README.md
 
+# Garantir que o frontend seja incluído
+!frontend/package.json
+!frontend/next.config.ts
+!frontend/tailwind.config.ts
+!frontend/tsconfig.json
+
 # Backend Laravel (não necessário para o frontend)
 app/
 bootstrap/
