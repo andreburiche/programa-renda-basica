@@ -1,8 +1,15 @@
+'use client';
+
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
-const ErrorMessage = ({ message, onRetry }) => {
+interface ErrorMessageProps {
+  message: string;
+  onRetry?: () => void;
+}
+
+const ErrorMessage = ({ message, onRetry }: ErrorMessageProps) => {
   return (
-    <div className="card border border-red-200 bg-red-50">
+    <div className="bg-white rounded-lg shadow-md p-6 border border-red-200 bg-red-50">
       <div className="flex items-center space-x-3">
         <ExclamationTriangleIcon className="h-6 w-6 text-red-500 flex-shrink-0" />
         <div className="flex-1">
@@ -14,7 +21,7 @@ const ErrorMessage = ({ message, onRetry }) => {
       {onRetry && (
         <button
           onClick={onRetry}
-          className="btn-secondary mt-4 w-full"
+          className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200 mt-4"
         >
           Tentar Novamente
         </button>

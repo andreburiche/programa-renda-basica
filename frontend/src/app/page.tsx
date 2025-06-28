@@ -1,27 +1,29 @@
-import { useState } from 'react'
-import ConsultaForm from './components/ConsultaForm'
-import ResultadoConsulta from './components/ResultadoConsulta'
-import ErrorMessage from './components/ErrorMessage'
-import { useConsulta } from './hooks/useConsulta'
+'use client';
 
-function App() {
-  const { loading, error, resultado, consultarCPF, limparResultado } = useConsulta()
-  const [lastCPF, setLastCPF] = useState('')
+import { useState } from 'react';
+import ConsultaForm from '@/components/ConsultaForm';
+import ResultadoConsulta from '@/components/ResultadoConsulta';
+import ErrorMessage from '@/components/ErrorMessage';
+import { useConsulta } from '@/hooks/useConsulta';
 
-  const handleConsulta = (cpf) => {
-    setLastCPF(cpf)
-    consultarCPF(cpf)
-  }
+export default function Home() {
+  const { loading, error, resultado, consultarCPF, limparResultado } = useConsulta();
+  const [lastCPF, setLastCPF] = useState('');
+
+  const handleConsulta = (cpf: string) => {
+    setLastCPF(cpf);
+    consultarCPF(cpf);
+  };
 
   const handleNovaConsulta = () => {
-    limparResultado()
-  }
+    limparResultado();
+  };
 
   const handleRetry = () => {
     if (lastCPF) {
-      consultarCPF(lastCPF)
+      consultarCPF(lastCPF);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -39,7 +41,7 @@ function App() {
         {/* Main Content */}
         <div className="space-y-6">
           {/* Form */}
-          <div className="card">
+          <div className="bg-white rounded-lg shadow-md p-6">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Consulta de CPF
@@ -78,7 +80,5 @@ function App() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-export default App

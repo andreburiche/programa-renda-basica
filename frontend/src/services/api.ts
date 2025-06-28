@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { ConsultaRequest, ConsultaResponse } from '@/types/api';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -22,11 +23,11 @@ api.interceptors.response.use(
 );
 
 export const cidadaoService = {
-  consultar: async (cpf) => {
+  consultar: async (cpf: string): Promise<ConsultaResponse> => {
     try {
-      const response = await api.post('/consultar', { cpf });
+      const response = await api.post<ConsultaResponse>('/consultar', { cpf });
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       if (error.response?.data?.message) {
         throw new Error(error.response.data.message);
       }

@@ -1,7 +1,15 @@
-import { CheckCircleIcon, XCircleIcon, ClockIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+'use client';
 
-const ResultadoConsulta = ({ resultado, onNovaConsulta }) => {
-  const getStatusIcon = (status) => {
+import { CheckCircleIcon, XCircleIcon, ClockIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { CidadaoData } from '@/types/api';
+
+interface ResultadoConsultaProps {
+  resultado: CidadaoData;
+  onNovaConsulta: () => void;
+}
+
+const ResultadoConsulta = ({ resultado, onNovaConsulta }: ResultadoConsultaProps) => {
+  const getStatusIcon = (status: string) => {
     switch (status) {
       case 'Aprovado':
         return <CheckCircleIcon className="h-6 w-6 text-green-500" />;
@@ -16,7 +24,7 @@ const ResultadoConsulta = ({ resultado, onNovaConsulta }) => {
     }
   };
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case 'Aprovado':
         return 'text-green-600 bg-green-50 border-green-200';
@@ -32,7 +40,7 @@ const ResultadoConsulta = ({ resultado, onNovaConsulta }) => {
   };
 
   return (
-    <div className="card space-y-6">
+    <div className="bg-white rounded-lg shadow-md p-6 space-y-6">
       <div className="text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Resultado da Consulta</h2>
         <p className="text-gray-600">Informações do beneficiário</p>
@@ -86,7 +94,7 @@ const ResultadoConsulta = ({ resultado, onNovaConsulta }) => {
 
       <button
         onClick={onNovaConsulta}
-        className="btn-secondary w-full"
+        className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200"
       >
         Nova Consulta
       </button>
